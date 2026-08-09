@@ -1,0 +1,63 @@
+{
+  "name": "@vallum/vue",
+  "version": "0.1.0",
+  "description": "Vue 3 plugin and composables for the Vallum browser client",
+  "license": "Apache-2.0",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run src/index.test.ts",
+    "prepack": "npm run build && node ../../scripts/prepare-package-license.mjs .",
+    "postpack": "node ../../scripts/cleanup-package-license.mjs ."
+  },
+  "dependencies": {
+    "@vallum/client": "^0.1.0"
+  },
+  "peerDependencies": {
+    "vue": ">=3.3.0 <4"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.2",
+    "vitest": "^4.1.10",
+    "vue": "^3.5.0"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vallum-proxy/vallum.git",
+    "directory": "packages/vallum-vue"
+  },
+  "homepage": "https://github.com/vallum-proxy/vallum#readme",
+  "bugs": {
+    "url": "https://github.com/vallum-proxy/vallum/issues"
+  },
+  "keywords": [
+    "vallum",
+    "vue",
+    "vue3",
+    "security",
+    "sdk"
+  ]
+}
