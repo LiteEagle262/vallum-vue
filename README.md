@@ -14,6 +14,10 @@ protected fetch explicitly, and every call waits for initialization.
 npm install @liteeagle226/vue @liteeagle226/client vue
 ```
 
+The adapter installs the core client automatically; it is listed explicitly to
+show the runtime pair. Install `@liteeagle226/admission` in the trusted backend
+that issues grants.
+
 Vue 3.3 or newer is required. Vallum also requires a secure browser context,
 Web Crypto, `fetch`, and an authenticated application session. Configure the
 same-origin admission broker described by `@liteeagle226/client` before integrating

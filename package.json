@@ -1,6 +1,6 @@
 {
   "name": "@liteeagle226/vue",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Vue 3 plugin and composables for the Vallum browser client",
   "license": "Apache-2.0",
   "type": "module",
@@ -27,7 +27,7 @@
     "postpack": "node ../../scripts/cleanup-package-license.mjs ."
   },
   "dependencies": {
-    "@liteeagle226/client": "^0.1.0"
+    "@liteeagle226/client": "^0.1.1"
   },
   "peerDependencies": {
     "vue": ">=3.3.0 <4"
