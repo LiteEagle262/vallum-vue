@@ -3,7 +3,7 @@ import {
   type MountOptions,
   type VallumClient,
   type VallumClientOptions,
-} from "@vallum/client";
+} from "@liteeagle226/client";
 import {
   computed,
   defineComponent,
@@ -21,7 +21,7 @@ import {
   type PropType,
 } from "vue";
 
-export type { MountOptions, VallumClient, VallumClientOptions } from "@vallum/client";
+export type { MountOptions, VallumClient, VallumClientOptions } from "@liteeagle226/client";
 
 /** The lifecycle of the browser-side Vallum session. */
 export type VallumStatus = "idle" | "initializing" | "ready" | "error" | "disposed";
@@ -69,7 +69,7 @@ export interface ProvideVallumOptions {
 
 /** The injection key used by the plugin, provider, and composables. */
 export const VALLUM_INJECTION_KEY: InjectionKey<VallumContext> = Symbol.for(
-  "@vallum/vue/context",
+  "@liteeagle226/vue/context",
 );
 
 /**
@@ -80,7 +80,7 @@ export const VALLUM_INJECTION_KEY: InjectionKey<VallumContext> = Symbol.for(
  */
 export function createVallum(options: VallumVueOptions): VallumPlugin {
   if (!options || typeof options.endpoint !== "string" || options.endpoint.trim() === "") {
-    throw new TypeError("@vallum/vue requires a non-empty Vallum endpoint");
+    throw new TypeError("@liteeagle226/vue requires a non-empty Vallum endpoint");
   }
 
   const { autoInitialize = true, ...unfrozenClientOptions } = options;
@@ -113,7 +113,7 @@ export function createVallum(options: VallumVueOptions): VallumPlugin {
 
     if (!isBrowserRuntime()) {
       const failure = new Error(
-        "@vallum/vue can initialize only in a browser; install it from a client-only entry point",
+        "@liteeagle226/vue can initialize only in a browser; install it from a client-only entry point",
       );
       statusState.value = "error";
       errorState.value = failure;
@@ -197,7 +197,7 @@ export function createVallum(options: VallumVueOptions): VallumPlugin {
     install(app: App): void {
       if (installedApp !== undefined && installedApp !== app) {
         throw new Error(
-          "A @vallum/vue plugin instance can be installed in only one Vue app; call createVallum() for each app",
+          "A @liteeagle226/vue plugin instance can be installed in only one Vue app; call createVallum() for each app",
         );
       }
       installedApp = app;
@@ -543,7 +543,7 @@ function applyCanvasPresentation(node: Element, options: MountOptions): void {
 }
 
 function releaseClient(client: VallumClient): void {
-  // `destroy()` is present in current @vallum/client releases. The optional
+  // `destroy()` is present in current @liteeagle226/client releases. The optional
   // check also lets the adapter cleanly support an older compatible client.
   const candidate = client as VallumClient & { destroy?: () => void };
   candidate.destroy?.call(client);

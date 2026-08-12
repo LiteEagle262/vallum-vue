@@ -1,6 +1,6 @@
-# `@vallum/vue`
+# `@liteeagle226/vue`
 
-Vue 3 integration for [`@vallum/client`](https://www.npmjs.com/package/@vallum/client). It provides one
+Vue 3 integration for [`@liteeagle226/client`](https://www.npmjs.com/package/@liteeagle226/client). It provides one
 per-application Vallum session through an idiomatic Vue plugin, readonly
 reactive state, Composition API helpers, component-scoped ownership, and a
 safe host component for render-only values.
@@ -11,12 +11,12 @@ protected fetch explicitly, and every call waits for initialization.
 ## Install
 
 ```sh
-npm install @vallum/vue @vallum/client vue
+npm install @liteeagle226/vue @liteeagle226/client vue
 ```
 
 Vue 3.3 or newer is required. Vallum also requires a secure browser context,
 Web Crypto, `fetch`, and an authenticated application session. Configure the
-same-origin admission broker described by `@vallum/client` before integrating
+same-origin admission broker described by `@liteeagle226/client` before integrating
 the framework adapter.
 
 ## Vue application plugin
@@ -26,7 +26,7 @@ Create exactly one instance per Vue app:
 ```ts
 // src/main.ts
 import { createApp } from "vue";
-import { createVallum } from "@vallum/vue";
+import { createVallum } from "@liteeagle226/vue";
 import App from "./App.vue";
 
 const app = createApp(App);
@@ -45,7 +45,7 @@ so components do not need to coordinate startup themselves:
 ```vue
 <script setup lang="ts">
 import { ref } from "vue";
-import { useVallum, useVallumFetch, useVallumStatus } from "@vallum/vue";
+import { useVallum, useVallumFetch, useVallumStatus } from "@liteeagle226/vue";
 
 const vallum = useVallum();
 const status = useVallumStatus();
@@ -91,7 +91,7 @@ session instead of the application plugin:
 
 ```vue
 <script setup lang="ts">
-import { VallumProvider, createVallum } from "@vallum/vue";
+import { VallumProvider, createVallum } from "@liteeagle226/vue";
 import ProtectedArea from "./ProtectedArea.vue";
 
 const vallum = createVallum({
@@ -122,7 +122,7 @@ Nuxt never initializes it while rendering on the server:
 ```ts
 // app/plugins/vallum.client.ts (Nuxt 4)
 // plugins/vallum.client.ts (Nuxt 3)
-import { createVallum } from "@vallum/vue";
+import { createVallum } from "@liteeagle226/vue";
 
 export default defineNuxtPlugin((nuxtApp) => {
   const config = useRuntimeConfig();
@@ -152,7 +152,7 @@ Render components that inject Vallum only on the client:
 </template>
 ```
 
-Importing `@vallum/vue` and calling `createVallum()` are SSR-safe. Explicitly
+Importing `@liteeagle226/vue` and calling `createVallum()` are SSR-safe. Explicitly
 calling `initialize()` or `fetch()` on the server rejects with a clear error
 and never constructs the browser client. `useOptionalVallum()` is available
 for components that intentionally support both injected and non-injected
@@ -166,7 +166,7 @@ one-shot pixel payload directly:
 
 ```vue
 <script setup lang="ts">
-import { VallumRenderOnly } from "@vallum/vue";
+import { VallumRenderOnly } from "@liteeagle226/vue";
 
 defineProps<{ protectedValue: unknown }>();
 </script>
@@ -209,10 +209,10 @@ screenshots and OCR; it is not a screen-capture security boundary.
 ## Package checks
 
 ```sh
-npm run typecheck --workspace @vallum/vue
-npm run test --workspace @vallum/vue
-npm run build --workspace @vallum/vue
-npm pack --dry-run --workspace @vallum/vue
+npm run typecheck --workspace @liteeagle226/vue
+npm run test --workspace @liteeagle226/vue
+npm run build --workspace @liteeagle226/vue
+npm pack --dry-run --workspace @liteeagle226/vue
 ```
 
 Licensed under Apache-2.0.

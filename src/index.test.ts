@@ -1,4 +1,4 @@
-import { createVallumClient, type VallumClient } from "@vallum/client";
+import { createVallumClient, type VallumClient } from "@liteeagle226/client";
 import {
   createRenderer,
   defineComponent,
@@ -18,13 +18,13 @@ import {
   useVallumStatus,
 } from "./index";
 
-vi.mock("@vallum/client", () => ({
+vi.mock("@liteeagle226/client", () => ({
   createVallumClient: vi.fn(),
 }));
 
 const createClientMock = vi.mocked(createVallumClient);
 
-describe("@vallum/vue", () => {
+describe("@liteeagle226/vue", () => {
   beforeEach(() => {
     vi.resetAllMocks();
     vi.stubGlobal("window", {});
